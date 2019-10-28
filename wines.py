@@ -14,11 +14,11 @@ def serialize_wine(vine: list) -> dict:
 
     serialized_vine = dict()
 
-    for line in vine:
+    for parameter in vine:
         try:
-            attribute, value = line.split(': ')
+            attribute, value = parameter.split(': ')
         except ValueError:
-            attribute, value = line.rstrip(':'), ''
+            attribute, value = parameter.rstrip(':'), ''
         serialized_vine[serialization_dict[attribute]] = value
 
     serialized_vine['promo'] = 'promo' in serialized_vine
