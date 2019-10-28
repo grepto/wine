@@ -4,7 +4,7 @@ WINES_FILE = 'vino.txt'
 
 
 def serialize_wine(vine: list) -> dict:
-    serialize_dict = {
+    serialization_dict = {
         'Название': 'name',
         'Сорт': 'type',
         'Цена': 'price',
@@ -19,7 +19,7 @@ def serialize_wine(vine: list) -> dict:
             attribute, value = line.split(': ')
         except ValueError:
             attribute, value = line.rstrip(':'), ''
-        serialized_vine[serialize_dict[attribute]] = value
+        serialized_vine[serialization_dict[attribute]] = value
 
     if 'promo' in serialized_vine:
         serialized_vine['promo'] = True
