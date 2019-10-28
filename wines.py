@@ -25,9 +25,9 @@ def serialize_wine(vine: list) -> dict:
     return serialized_vine
 
 
-def get_wines() -> dict:
+def get_wines(wines_file=WINES_FILE) -> dict:
     wines = dict()
-    with open(WINES_FILE, 'r', encoding='utf8') as wines_file:
+    with open(wines_file, 'r', encoding='utf8') as wines_file:
         file_content = [row.strip() for row in wines_file]
     wine = []
     category = ''
