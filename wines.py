@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 WINES_FILE = 'vino.txt'
 
 
@@ -25,8 +27,8 @@ def serialize_wine(vine: list) -> dict:
     return serialized_vine
 
 
-def get_wines(wines_file=WINES_FILE) -> dict:
-    wines = dict()
+def get_wines(wines_file: str = WINES_FILE) -> dict:
+    wines = defaultdict(list)
     with open(wines_file, 'r', encoding='utf8') as wines_file:
         file_content = [row.strip() for row in wines_file]
     wine = []
@@ -34,7 +36,6 @@ def get_wines(wines_file=WINES_FILE) -> dict:
     for row in file_content:
         if row.startswith('#'):
             _, category = row.split('# ')
-            wines[category] = []
         elif row:
             wine.append(row)
         elif wine:
@@ -44,3 +45,7 @@ def get_wines(wines_file=WINES_FILE) -> dict:
     wines[category].append(serialize_wine(wine))
 
     return wines
+
+
+if __name__ == '__main__':
+    print(get_wines())
