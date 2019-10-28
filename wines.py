@@ -21,8 +21,7 @@ def serialize_wine(vine: list) -> dict:
             attribute, value = line.rstrip(':'), ''
         serialized_vine[serialization_dict[attribute]] = value
 
-    if 'promo' in serialized_vine:
-        serialized_vine['promo'] = True
+    serialized_vine['promo'] = 'promo' in serialized_vine
 
     return serialized_vine
 
